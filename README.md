@@ -17,8 +17,8 @@ QueryPilot is a Streamlit application that allows users to interact with a panda
 ### Initialize LangChain LLM
 - The program initializes the LangChain language model (`gpt-3.5-turbo`) using the `ChatOpenAI` class.
 
-### Read CSV into a DataFrame
-- The program reads a CSV file (`salaries_2023.csv`) into a pandas DataFrame and fills any missing values with 0. If the CSV file is not found, it displays an error message and stops execution.
+### Upload CSV into a DataFrame
+- The program allows users to upload a CSV file into a pandas DataFrame and fills any missing values with 0. If the CSV file is not found, it displays an error message and stops execution.
 
 ### Streamlit UI
 - The program sets up the Streamlit user interface:
@@ -41,7 +41,7 @@ QueryPilot is a Streamlit application that allows users to interact with a panda
 - The `main()` function is called if the script is run as the main module.
 
 ## Example Usage
-- Users can select a question like "What is the average salary by department?" from the dropdown menu or write their own question.
+- Users can upload a CSV file and select a question like "What is the average salary by department?" from the dropdown menu or write their own question.
 - The application processes the question and displays the result.
 - If the result includes tabular data, users can download it as a CSV file for future reference.
 
