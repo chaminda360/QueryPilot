@@ -3,7 +3,7 @@ import pandas as pd
 from langchain_experimental.agents.agent_toolkits import create_pandas_dataframe_agent
 from file_utils import upload_and_save_file, load_csv
 from llm_utils import load_api_key, initialize_llm
-from prompt_utils import define_prompts,default_questions
+from prompt_utils import define_prompts, default_questions
 
 def create_agent(model, panda_df: pd.DataFrame):
     """Create a pandas dataframe agent using the specified model."""
@@ -34,7 +34,7 @@ def ask_question_to_agent(agent, panda_df: pd.DataFrame, CSV_PROMPT_PREFIX: str,
                     file_name='query_result.csv',
                     mime='text/csv',
                 )
-            elif isinstance(res,  panda_df.DataFrame):
+            elif isinstance(res, pd.DataFrame):
                 st.dataframe(res)
                 csv = res.to_csv(index=False).encode('utf-8')
                 st.download_button(
@@ -44,7 +44,7 @@ def ask_question_to_agent(agent, panda_df: pd.DataFrame, CSV_PROMPT_PREFIX: str,
                     mime='text/csv',
                 )
             else:
-                st.markdown(res)
+                st.markdown(res["output"])
         except Exception as e:
             st.error(f"Error querying the agent: {e}")
 
