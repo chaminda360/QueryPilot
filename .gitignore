@@ -59,4 +59,4 @@ Pipfile
 Pipfile.lock
 
 # Ignore data folder
-data/
+# data/
