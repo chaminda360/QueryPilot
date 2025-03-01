@@ -57,3 +57,6 @@ dmypy.json
 # Pipenv
 Pipfile
 Pipfile.lock
+
+# Ignore data folder contents
+data/*

@@ -73,7 +73,7 @@ QueryPilot is a Streamlit application that allows users to interact with a panda
 
 5. **Run the Streamlit application**:
     ```sh
-    streamlit run app.py
+    streamlit run csv_agent.py
     ```
 
 6. **Open your web browser**:
