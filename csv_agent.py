@@ -1,13 +1,16 @@
 import streamlit as st
+import pandas as pd
 from langchain_experimental.agents.agent_toolkits import create_pandas_dataframe_agent
 from file_utils import upload_and_save_file, load_csv
 from llm_utils import load_api_key, initialize_llm
 from prompt_utils import define_prompts,default_questions
 
-def create_agent(model, panda_df):
+def create_agent(model, panda_df: pd.DataFrame):
+    """Create a pandas dataframe agent using the specified model."""
     return create_pandas_dataframe_agent(llm=model, df=panda_df, verbose=True)
 
-def ask_question_to_agent(agent, panda_df, CSV_PROMPT_PREFIX, CSV_PROMPT_SUFFIX):
+def ask_question_to_agent(agent, panda_df: pd.DataFrame, CSV_PROMPT_PREFIX: str, CSV_PROMPT_SUFFIX: str):
+    """Prompt the user for a question and query the agent with it."""
     questions = default_questions()
 
     st.write("### Ask a Question")
@@ -46,6 +49,7 @@ def ask_question_to_agent(agent, panda_df, CSV_PROMPT_PREFIX, CSV_PROMPT_SUFFIX)
             st.error(f"Error querying the agent: {e}")
 
 def main():
+    """Main function to run the Streamlit app."""
     try:
         api_key = load_api_key()
         if not api_key:
